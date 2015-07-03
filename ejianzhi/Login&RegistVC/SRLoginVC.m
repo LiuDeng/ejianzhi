@@ -168,42 +168,9 @@ static  SRLoginVC *thisController=nil;
     {
     }
     
-    int type = [[[NSUserDefaults standardUserDefaults] objectForKey:@"type"] intValue];
-    if (type == 1)
-    {
-        self.titleLabel.text=@"企业登录";
-        self.userAccount.placeholder=@"请输入企业登录账户";
-        [self.otherLoginBtn setTitle:@"求职者登录" forState:UIControlStateNormal];
-        self.view.backgroundColor = COLOR(53, 156, 108);
-        [self.otherLoginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        _loginButton.backgroundColor = [UIColor whiteColor];
-        [_loginButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    }
-    else if (type == 2)
-    {
-        self.userAccount.placeholder=@"请输入账户名";
-        self.titleLabel.text=@"求职者登录";
-        [self.otherLoginBtn setTitle:@"企业登录" forState:UIControlStateNormal];
-        self.view.backgroundColor =COLOR(235, 235, 241);
-        [self.otherLoginBtn setTitleColor:COLOR(53, 156, 108) forState:UIControlStateNormal];
-        _loginButton.backgroundColor = COLOR(53, 156, 108);
-        [_loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    }
-    else
-    {
-        [[NSUserDefaults standardUserDefaults] setObject:@(2) forKey:@"type"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        self.userAccount.placeholder=@"请输入账户名";
-        self.titleLabel.text=@"求职者登录";
-        [self.otherLoginBtn setTitle:@"企业登录" forState:UIControlStateNormal];
-        self.view.backgroundColor = COLOR(53, 156, 108);
-        [self.otherLoginBtn setTitleColor:COLOR(53, 156, 108) forState:UIControlStateNormal];
-        _loginButton.backgroundColor = COLOR(53, 156, 108);
-        [_loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    }
-    
     _weixinLabel.textColor = COLOR(48, 48, 48);
-    
+    _weiboLabel.textColor = COLOR(48, 48, 48);
+    _qqLabel.textColor = COLOR(48, 48, 48);
     _loginButton.layer.cornerRadius = 5.0f;
     _loginButton.layer.masksToBounds = YES;
     

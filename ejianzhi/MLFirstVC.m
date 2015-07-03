@@ -280,6 +280,7 @@
     //[self.joblistTableVC.tableView setTableHeaderView:_tableHeadView2];
     //添加表尾
     [self.joblistTableVC addFooterRefresher];
+    [self.joblistTableVC addHeaderRefresher];
 }
 
 
