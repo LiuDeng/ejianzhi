@@ -83,13 +83,6 @@
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self firstLoad];
-    [self.tableView reloadData];
-}
-
 - (void)tableViewInit{
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     self.tableView.scrollEnabled=YES;

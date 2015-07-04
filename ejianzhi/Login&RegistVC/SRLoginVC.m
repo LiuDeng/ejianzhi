@@ -167,6 +167,8 @@ static  SRLoginVC *thisController=nil;
     }else
     {
     }
+    [[NSUserDefaults standardUserDefaults] setObject:@(2) forKey:@"type"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     _weixinLabel.textColor = COLOR(48, 48, 48);
     _weiboLabel.textColor = COLOR(48, 48, 48);
