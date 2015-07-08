@@ -134,6 +134,7 @@
         button.frame=CGRectMake(space*(i+1)+width*i,(height-width)/4, width, width);
         [button setImage:[UIImage imageNamed:imageArray[i]] forState:UIControlStateNormal];
 
+        
         [_buttonScrollView addSubview:button];
         button.tag=100+i;
         [button addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
