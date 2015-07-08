@@ -82,7 +82,7 @@
 //action
 - (IBAction)findJobWithLocationAction:(id)sender;
 - (IBAction)findJobWithCardAction:(id)sender;
-- (IBAction)jobAsTeacherAction:(id)sender;
+//- (IBAction)jobAsTeacherAction(id)sender;
 - (IBAction)jobAsAccountingAction:(id)sender;
 - (IBAction)jobAsModelAction:(id)sender;
 - (IBAction)jobAsOutseaStuAction:(id)sender;
@@ -92,7 +92,7 @@
 @implementation MLFirstVC
 @synthesize tableHeadView=_tableHeadView;
 
-
+//注释     、、、、、、、、、、、
 -(instancetype)init
 {
     if(self=[super init])
