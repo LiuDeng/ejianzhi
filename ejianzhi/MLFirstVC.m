@@ -97,6 +97,7 @@
 {
     if(self=[super init])
     {
+        
         self.joblistTableVC=[[JobListTableViewController alloc]initWithAutoLoad:YES];
         self.joblistTableVC.isAutoLoad=NO;
     }
