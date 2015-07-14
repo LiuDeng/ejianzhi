@@ -83,7 +83,7 @@
 //action
 - (IBAction)findJobWithLocationAction:(id)sender;
 - (IBAction)findJobWithCardAction:(id)sender;
-- (IBAction)jobAsTeacherAction:(id)sender;
+//- (IBAction)jobAsTeacherAction(id)sender;
 - (IBAction)jobAsAccountingAction:(id)sender;
 - (IBAction)jobAsModelAction:(id)sender;
 - (IBAction)jobAsOutseaStuAction:(id)sender;
@@ -93,11 +93,12 @@
 @implementation MLFirstVC
 @synthesize tableHeadView=_tableHeadView;
 
-
+//注释     、、、、、、、、、、、
 -(instancetype)init
 {
     if(self=[super init])
     {
+        
         self.joblistTableVC=[[JobListTableViewController alloc]initWithAutoLoad:YES];
         self.joblistTableVC.isAutoLoad=NO;
     }
@@ -134,6 +135,7 @@
         button.frame=CGRectMake(space*(i+1)+width*i,(height-width)/4, width, width);
         [button setImage:[UIImage imageNamed:imageArray[i]] forState:UIControlStateNormal];
 
+        
         [_buttonScrollView addSubview:button];
         button.tag=100+i;
         [button addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];

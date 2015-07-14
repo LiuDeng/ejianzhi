@@ -17,8 +17,6 @@
 #import "JobListWithDropDownListVCViewController.h"
 @interface MLTabbarVC ()
 
-
-
 @end
 
 @implementation MLTabbarVC
