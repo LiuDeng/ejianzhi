@@ -717,6 +717,7 @@
 		6009BB0C1B3CF9FE006B025C /* JobListTableViewCell+configureForJobCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6009BB091B3CF9FE006B025C /* JobListTableViewCell+configureForJobCell.m */; };
 		6009BB101B3E4B53006B025C /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6009BB0F1B3E4B53006B025C /* HelpViewController.m */; };
 		601A36911B4399F700779C35 /* myJobListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 601A36901B4399F700779C35 /* myJobListVC.m */; };
+		601C38A61B54A75F00158B17 /* Single.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C38A51B54A75F00158B17 /* Single.m */; };
 		605E590F1B351A4100FD9AB2 /* 企业信息icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 605E590E1B351A4100FD9AB2 /* 企业信息icon.png */; };
 		605E59111B351B7400FD9AB2 /* 服务中心icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 605E59101B351B7400FD9AB2 /* 服务中心icon.png */; };
 		605E591B1B351BDC00FD9AB2 /* 默认头像.png in Resources */ = {isa = PBXBuildFile; fileRef = 605E59141B351BDC00FD9AB2 /* 默认头像.png */; };
@@ -1754,6 +1755,8 @@
 		6009BB0E1B3E4B53006B025C /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		6009BB0F1B3E4B53006B025C /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		601A36901B4399F700779C35 /* myJobListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myJobListVC.m; sourceTree = "<group>"; };
+		601C38A41B54A75F00158B17 /* Single.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Single.h; sourceTree = "<group>"; };
+		601C38A51B54A75F00158B17 /* Single.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Single.m; sourceTree = "<group>"; };
 		605E590E1B351A4100FD9AB2 /* 企业信息icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "企业信息icon.png"; sourceTree = "<group>"; };
 		605E59101B351B7400FD9AB2 /* 服务中心icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "服务中心icon.png"; sourceTree = "<group>"; };
 		605E59141B351BDC00FD9AB2 /* 默认头像.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认头像.png"; sourceTree = "<group>"; };
@@ -2838,6 +2841,8 @@
 				0456264C1AD621AC006E159C /* MLTextUtils.h */,
 				0456264D1AD621AC006E159C /* stringUtil.h */,
 				0456264E1AD621AC006E159C /* stringUtil.m */,
+				601C38A41B54A75F00158B17 /* Single.h */,
+				601C38A51B54A75F00158B17 /* Single.m */,
 			);
 			path = Utilty;
 			sourceTree = "<group>";
@@ -4642,6 +4647,7 @@
 				0443C17C1AD55455004F29A5 /* MLCell1.m in Sources */,
 				0443C2061AD5559E004F29A5 /* JianZhiPointEntity.m in Sources */,
 				0443C22F1AD5560F004F29A5 /* SRShowRouteVC.m in Sources */,
+				601C38A61B54A75F00158B17 /* Single.m in Sources */,
 				3BBF6F591AD6D0E800A33F5A /* UIImage+RTTint.m in Sources */,
 				3BBF6F4D1AD6D0E800A33F5A /* MLTemplateVC.m in Sources */,
 				045622F91AD61A8F006E159C /* SRLoginBusiness.m in Sources */,

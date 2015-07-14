@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -7,12 +7,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SRLoginVC">
             <connections>
+                <outlet property="centerLabel" destination="KGf-9N-TLV" id="Css-Pm-7DW"/>
                 <outlet property="floatView2" destination="1vU-6Q-aDc" id="ZHY-Lw-upQ"/>
+                <outlet property="leftViewLine" destination="Pi8-cD-cP6" id="WaA-jO-0qV"/>
                 <outlet property="loginButton" destination="fhv-w2-Wmf" id="Pfp-NK-d1A"/>
                 <outlet property="otherLoginBtn" destination="gtx-wV-vNx" id="gPr-gp-XRB"/>
                 <outlet property="qqButton" destination="9H4-Tn-tAe" id="CqO-sS-iAZ"/>
                 <outlet property="qqLabel" destination="32F-is-lFE" id="Rgh-Ge-da4"/>
                 <outlet property="resetPassword" destination="8Mw-yD-3as" id="JuI-FW-JoH"/>
+                <outlet property="rightViewLine" destination="uHP-2B-at1" id="NGT-3s-qgh"/>
                 <outlet property="titleLabel" destination="YxS-hs-Jf2" id="6Wg-QR-xUR"/>
                 <outlet property="userAccount" destination="00O-Dy-WYs" id="Qtk-rD-ckM"/>
                 <outlet property="userPassword" destination="OWm-4R-BCC" id="eSV-FO-mQ9"/>
@@ -110,7 +113,7 @@
                     <rect key="frame" x="30" y="388" width="50" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gtx-wV-vNx">
@@ -152,14 +155,14 @@
                     <rect key="frame" x="238" y="392" width="42" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微博" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZZz-kr-WAB">
                     <rect key="frame" x="135" y="388" width="50" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zTe-l7-jEt">

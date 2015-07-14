@@ -18,6 +18,7 @@
 #import <AVOSCloudSNS/AVOSCloudSNS.h>
 #import <AVOSCloudSNS/AVUser+SNS.h>
 #import "UserDetail.h"
+#import "MBProgressHUD.h"
 
 @interface SRLoginVC ()<successRegistered,UIAlertViewDelegate>
 {
@@ -35,6 +36,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *weiboLabel;
 @property (weak, nonatomic) IBOutlet UIButton *qqButton;
 @property (weak, nonatomic) IBOutlet UILabel *qqLabel;
+@property (weak, nonatomic) IBOutlet UIView *leftViewLine;
+@property (weak, nonatomic) IBOutlet UIView *rightViewLine;
+@property (weak, nonatomic) IBOutlet UILabel *centerLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
@@ -57,7 +61,6 @@ static  SRLoginVC *thisController=nil;
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
 }
@@ -122,11 +125,79 @@ static  SRLoginVC *thisController=nil;
             break;
     }
 }
+
+- (void)checkVersion
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    AVQuery *query = [AVQuery queryWithClassName:@"Version"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error)
+        {
+            if (objects.count > 0)
+            {
+                AVObject *object = [objects objectAtIndex:0];
+                if ([[object objectForKey:@"versionNumber"] isEqualToString:@"1.0.9"])
+                {
+                    [Single shareUserInstance].isAudit = NO;
+                    _weixinButton.hidden = NO;
+                    _weixinLabel.hidden = NO;
+                    _weiboButton.hidden = NO;
+                    _weiboLabel.hidden = NO;
+                    _qqButton.hidden = NO;
+                    _qqLabel.hidden = NO;
+                    _rightViewLine.hidden = NO;
+                    _leftViewLine.hidden = NO;
+                    _centerLabel.hidden = NO;
+                    if (![Single shareUserInstance].isAudit)
+                    {
+                        [self creatThirdLoginView];
+                        
+                    }
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                }
+                else
+                {
+                    [Single shareUserInstance].isAudit = YES;
+                    [self appIsAudit];
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                }
+            }
+            else
+            {
+                [Single shareUserInstance].isAudit = YES;
+                [self appIsAudit];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            }
+        }
+        else
+        {
+            [Single shareUserInstance].isAudit = YES;
+            [self appIsAudit];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }
+    }];
+}
+
+- (void)appIsAudit
+{
+    _weixinButton.hidden = YES;
+    _weixinLabel.hidden = YES;
+    _weiboButton.hidden = YES;
+    _weiboLabel.hidden = YES;
+    _qqButton.hidden = YES;
+    _qqLabel.hidden = YES;
+    _rightViewLine.hidden = YES;
+    _leftViewLine.hidden = YES;
+    _centerLabel.hidden = YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.userPassword.clearButtonMode=NO;
     self.loginButton.tag=101;
-    [self creatThirdLoginView];
+    [self appIsAudit];
+    [self checkVersion];
+    
+    
 //    UIImageView *headImageView = [[UIImageView alloc] initWithFrame:CGRectMake((SCREENWIDTH-80)/2, 48+44+20, 80, 80)];
 //    headImageView.image = [UIImage imageNamed:@"Icon-60.png"];
 //    [self.view addSubview:headImageView];

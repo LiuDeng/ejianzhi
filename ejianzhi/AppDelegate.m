@@ -138,6 +138,7 @@
     
     [UMSocialWechatHandler setWXAppId:@"wx6303763ca81b7a64" appSecret:@"f8a12d4c3720dec1af74a57da263ffa8" url:@"http://www.umeng.com/social"];
     [UMSocialQQHandler setQQWithAppId:@"1104655106" appKey:@"hoh1WddjDGZGULxA" url:@"http://www.umeng.com/social"];
+    
     //Enabling keyboard manager
     [[IQKeyboardManager sharedManager] setEnable:YES];
     [[IQKeyboardManager sharedManager] setKeyboardDistanceFromTextField:15];
@@ -164,7 +165,6 @@
         [application registerUserNotificationSettings:settings];
         [application registerForRemoteNotifications];
     }
-
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     nav = [[UINavigationController alloc]initWithRootViewController:[SRLoginVC shareLoginVC]];
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"didGuide"] intValue] == 1)

@@ -29,6 +29,7 @@
 #import <UIAlertView+Blocks.h>
 #import "JobListWithDropDownListVCViewController.h"
 #import "AJLocationManager.h"
+#import "CompanyInfoViewController.h"
 
 
 #import <AVOSCloud/AVOSCloud.h>
@@ -343,26 +344,79 @@
  *  @param vid <#vid description#>
  */
 - (void)buttonClick:(int)vid{
-    
-    NSMutableArray *urlArray=[[NSMutableArray alloc]init];
     NSUserDefaults *mysettings=[NSUserDefaults standardUserDefaults];
     NSArray *bannerData=[mysettings objectForKey:@"BannerData"];
     NSDictionary *dict=[bannerData objectAtIndex:vid];
-    NSLog(@"BannerTouch:%@",[dict objectForKey:@"BannerType"]);
-    UIViewController *webVC=[[UIViewController alloc]init];
-
-    UIWebView *webView=[[UIWebView alloc] init];
-    webVC.view=webView;
-    webView.delegate=self;
-    NSString *Url = [NSString stringWithFormat:@"%@",[dict objectForKey:@"BannerParam"]];
     
-    NSURL *URL =[NSURL URLWithString:Url];// 貌似tel:// 或者 tel: 都行
-    webVC.hidesBottomBarWhenPushed=YES;
-    webVC.edgesForExtendedLayout=UIRectEdgeNone;
-    //记得添加到view上
-    [self.navigationController pushViewController:webVC animated:YES];
-//    [webVC.view addSubview:webview];
-    [webView loadRequest:[NSURLRequest requestWithURL:URL]];
+    if ([[dict objectForKey:@"BannerType"] intValue] == HOMEBANNERTYPE_WAP)
+    {
+        
+        NSLog(@"BannerTouch:%@",[dict objectForKey:@"BannerType"]);
+        UIViewController *webVC=[[UIViewController alloc]init];
+        
+        UIWebView *webView=[[UIWebView alloc] init];
+        webVC.view=webView;
+        webView.delegate=self;
+        NSString *Url = [NSString stringWithFormat:@"%@",[dict objectForKey:@"BannerParam"]];
+        
+        NSURL *URL =[NSURL URLWithString:Url];// 貌似tel:// 或者 tel: 都行
+        webVC.hidesBottomBarWhenPushed=YES;
+        webVC.edgesForExtendedLayout=UIRectEdgeNone;
+        //记得添加到view上
+        [self.navigationController pushViewController:webVC animated:YES];
+        //    [webVC.view addSubview:webview];
+        [webView loadRequest:[NSURLRequest requestWithURL:URL]];
+    }
+    else if ([[dict objectForKey:@"BannerType"] intValue] == HOMEBANNERTYPE_ENTERPRISEINFO)
+    {
+        
+        CompanyInfoViewController *companyInfoVC=[[CompanyInfoViewController alloc]initWithData:[dict objectForKey:@"BannerParam"]];
+        companyInfoVC.hidesBottomBarWhenPushed=YES;
+        companyInfoVC.edgesForExtendedLayout=UIRectEdgeNone;
+        [self.navigationController pushViewController:companyInfoVC animated:YES];
+    }
+    else if ([[dict objectForKey:@"BannerType"] intValue] == HOMEBANNERTYPE_CLASSJIANZHI)
+    {
+        JobListWithDropDownListVCViewController *joblistWithDrowList=[[JobListWithDropDownListVCViewController alloc]init];
+        [joblistWithDrowList setCurrentType:[dict objectForKey:@"BannerParam"]];
+        [self.navigationController pushViewController:joblistWithDrowList animated:YES];
+    }
+    else if ([[dict objectForKey:@"BannerType"] intValue] == HOMEBANNERTYPE_JIANZHIDETAIL)
+    {
+        AVQuery *query = [AVQuery queryWithClassName:@"Jianzhi"];
+        [query whereKey:@"objectId" equalTo:[dict objectForKey:@"BannerParam"]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error)
+            {
+                if (objects.count > 0)
+                {
+                    JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:[objects objectAtIndex:0]];
+                    detailVC.hidesBottomBarWhenPushed=YES;
+                    [self.navigationController pushViewController:detailVC animated:YES];
+                }
+                else
+                {
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"加载失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    [alertView show];
+                }
+            }
+            else
+            {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"加载失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alertView show];
+            }
+        }];
+        
+        
+    }
+    else if ([[dict objectForKey:@"BannerType"] intValue] == HOMEBANNERTYPE_HUODONG)
+    {
+        
+    }
+    else if ([[dict objectForKey:@"BannerType"] intValue] == HOMEBANNERTYPE_OTHER)
+    {
+        
+    }
 }
 
 
